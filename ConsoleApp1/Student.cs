@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class Student
+    public class Student
     {
-        string name;
-        int age;
-        Student(string name, int age)
+        public string Name;
+        public int Age;
+        public Student(string name, int age)
         {
-            this.name = name;
+            this.Name = name;
+            this.Age = age;
         }
         
     }
