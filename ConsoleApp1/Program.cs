@@ -7,9 +7,14 @@
 
             Console.WriteLine("Bubble Sort: \n");
             BubbleSort();
+            Console.WriteLine();
             Console.WriteLine("-------------");
-
-
+            Console.WriteLine();
+            Console.WriteLine("Selection Sort: \n");
+            SelectionSort();
+            Console.WriteLine();
+            Console.WriteLine("-------------");
+            
 
         }
         static void BubbleSort()
@@ -35,6 +40,35 @@
             foreach (Student student in students)
             {
                 Console.WriteLine($"{student.Name} : {student.Age}");
+            }
+        }
+        static void SelectionSort()
+        {
+            Book a = new Book("1", "a");
+            Book b = new Book("2", "b");
+            Book c = new Book("3", "c");
+            Book d = new Book("4", "d");
+            Book f = new Book("5", "f");
+            Book g = new Book("6", "g");
+
+            Book[] books = new Book[] { a, g, c,f,g, b , d};
+            for(int i = 0; i < books.Length - 1;i++)
+            {
+                int minIndex = i;
+                for (int j = i + 1; j < books.Length; j++)
+                {
+                    if (string.Compare(books[j].Title, books[minIndex].Title, StringComparison.Ordinal) < 0)
+                    {
+                        minIndex = j; 
+                    }
+                }
+                (books[minIndex], books[i]) = (books[i], books[minIndex]);
+            }
+
+            
+            foreach (Book book in books)
+            {
+                Console.WriteLine($"{book.Author} : {book.Title}");
             }
         }
 
