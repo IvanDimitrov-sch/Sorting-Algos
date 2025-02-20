@@ -11,10 +11,12 @@ namespace ConsoleApp1
     {
         public string Name {get;set;}
         public int Age {get;set;}
-        public Student(string name, int age)
+        public double Grade { get; set; }
+        public Student(string name, int age = 0, double grade = 0)
         {
             this.Name = name;
             this.Age = age;
+            this.Grade = grade;
         }
 
         

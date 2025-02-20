@@ -4,6 +4,15 @@
     {
         static void Main(string[] args)
         {
+            List<Student> students = new List<Student>
+            {
+            new Student("Иван", 13,5.50),
+            new Student("Александър",27, 5.50),
+            new Student("Георги",18, 6.00),
+            new Student("Мария",29, 5.75),
+            new Student("Николай",21, 5.75),
+            new Student("Анна", 22,4.80)
+            };
 
             Console.WriteLine("Bubble Sort: \n");
             BubbleSort();
@@ -14,7 +23,11 @@
             SelectionSort();
             Console.WriteLine();
             Console.WriteLine("-------------");
-            
+            Console.WriteLine("Insertion Sort: \n");
+            InsertionSort(students);
+            Console.WriteLine();
+            Console.WriteLine("-------------");
+
 
         }
         static void BubbleSort()
@@ -71,6 +84,26 @@
                 Console.WriteLine($"{book.Author} : {book.Title}");
             }
         }
+        static void InsertionSort(List<Student> students)
+        {
+            for (int i = 1; i < students.Count; i++)
+            {
+                Student currentStudent = students[i];
+                int j = i - 1;
 
+                
+                while (j >= 0 && (students[j].Grade < currentStudent.Grade ||
+                                  (students[j].Grade == currentStudent.Grade && students[j].Name.CompareTo(currentStudent.Name) < 0)))
+                {
+                    students[j + 1] = students[j];
+                    j--;
+                }
+                students[j + 1] = currentStudent;
+            }
+            foreach(Student s in students)
+            {
+                Console.WriteLine($"{s.Name} - Grade: {s.Grade}");
+            }
+        }
     }
 }
